@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import Cadastro from './Cadastro';
+import Login from './Login';
+import Home from './Home';
+import { UtilsContexto } from "./Context";
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const Stack = createStackNavigator();
+
+  const [usuarios, setUsuarios] = useState({usuariosArray:[]});
+
+  return (
+    <NavigationContainer>
+      <UtilsContexto.Provider value={{ usuarios, setUsuarios }}>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" options={{ headerShown: false }} component={Home} />
+          <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
+          <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
+        </Stack.Navigator>
+      </UtilsContexto.Provider>
+    </NavigationContainer>
+  );
+
+}
