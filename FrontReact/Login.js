@@ -82,18 +82,20 @@ export default function Login(props) {
                             height: "3em",
                             justifyContent: 'center',
                             alignItems: "center",
+                            borderRightWidth: 1 
                         }}>
                         <Text >Login</Text>
                     </Pressable>
 
-                    <Text style={{ justifyContent: 'center', alignItems: 'center' }}>|</Text>
+                    {/* <Text style={{ justifyContent: 'center', alignItems: 'center' }}>|</Text> */}
                     
                     <Pressable onPress={() => goToCadastro()}>
                         <View style={{
                             width: "10em",
                             height: "3em",
                             justifyContent: 'center',
-                            alignItems: "center"
+                            alignItems: "center", 
+                            borderLeftWidth: 1 
                         }}>
                             <Text style={{ color: "black" }}>Cadastrar</Text>
                         </View>
