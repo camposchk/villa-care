@@ -21,7 +21,8 @@ export default function Usuario(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Text >Login</Text>
+                        <Image source={require('./imagens/reserva.png')} style={styles.icons} />
+                        <Text >Reservas</Text>
                     </Pressable>
                     <Pressable onPress={() => goToUsuario()}
                         style={{
@@ -33,33 +34,8 @@ export default function Usuario(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Text >Login</Text>
-                    </Pressable>
-                </View>
-            <View style={{ display: "flex", flexDirection: 'row'}}>
-                    <Pressable onPress={() => goToUsuario()}
-                        style={{
-                            width: "10em",
-                            height: "6em",
-                            justifyContent: 'center',
-                            alignItems: "center",
-                            backgroundColor: '#BBBABA',
-                            borderRadius: '15px',
-                            margin: 2
-                        }}>
-                        <Text >Login</Text>
-                    </Pressable>
-                    <Pressable onPress={() => goToUsuario()}
-                        style={{
-                            width: "10em",
-                            height: "6em",
-                            justifyContent: 'center',
-                            alignItems: "center",
-                            backgroundColor: '#BBBABA',
-                            borderRadius: '15px',
-                            margin: 2
-                        }}>
-                        <Text >Login</Text>
+                        <Image source={require('./imagens/agendamento.png')} style={styles.icons} />
+                        <Text >Agendamentos</Text>
                     </Pressable>
                 </View>
             <View style={{ display: "flex", flexDirection: 'row'}}>
@@ -73,7 +49,8 @@ export default function Usuario(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Text >Login</Text>
+                        <Image source={require('./imagens/financeiro.png')} style={styles.icons} />
+                        <Text >Financeiro</Text>
                     </Pressable>
                     <Pressable onPress={() => goToUsuario()}
                         style={{
@@ -85,7 +62,8 @@ export default function Usuario(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Text >Login</Text>
+                        <Image source={require('./imagens/denuncia.png')} style={styles.icons} />
+                        <Text >Denúncias</Text>
                     </Pressable>
                 </View>
             <View style={{ display: "flex", flexDirection: 'row'}}>
@@ -99,7 +77,36 @@ export default function Usuario(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Text >Login</Text>
+                        <Image source={require('./imagens/historico.png')} style={styles.icons} />
+                        <Text >Registros</Text>
+                    </Pressable>
+                    <Pressable onPress={() => goToUsuario()}
+                        style={{
+                            width: "10em",
+                            height: "6em",
+                            justifyContent: 'center',
+                            alignItems: "center",
+                            backgroundColor: '#BBBABA',
+                            borderRadius: '15px',
+                            margin: 2
+                        }}>
+                        <Image source={require('./imagens/apartamento.png')} style={styles.icons} />
+                        <Text >Apartamentos</Text>
+                    </Pressable>
+                </View>
+            <View style={{ display: "flex", flexDirection: 'row'}}>
+                    <Pressable onPress={() => goToUsuario()}
+                        style={{
+                            width: "10em",
+                            height: "6em",
+                            justifyContent: 'center',
+                            alignItems: "center",
+                            backgroundColor: '#BBBABA',
+                            borderRadius: '15px',
+                            margin: 2
+                        }}>
+                        <Image source={require('./imagens/eleicao.png')} style={styles.icons} />
+                        <Text >Eleições</Text>
                     </Pressable>
                     <Pressable onPress={() => goToUsuario()}
                         style={{
@@ -117,3 +124,10 @@ export default function Usuario(props) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    icons: {
+        height: 30,
+        width: 30
+    }
+})
