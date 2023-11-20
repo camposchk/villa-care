@@ -39,7 +39,7 @@ export default function Home(props) {
                     </Pressable>
                 </View>
             <View style={{ display: "flex", flexDirection: 'row'}}>
-                    <Pressable onPress={() => goToUsuario()}
+                    <Pressable onPress={() => props.navigation.navigate("Financeiro")}
                         style={{
                             width: "10em",
                             height: "6em",

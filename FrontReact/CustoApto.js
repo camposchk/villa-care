@@ -46,7 +46,7 @@ export default function Cadastro(props) {
             /> */}
 
             <TextInput
-                label="Nome"
+                label="Água"
                 style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
@@ -54,7 +54,7 @@ export default function Cadastro(props) {
                 onChangeText={e => setNome(e)}
             />
             <TextInput
-                label="Email"
+                label="Funcionários"
                 style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
@@ -63,7 +63,7 @@ export default function Cadastro(props) {
             />
             <View style={{display: "flex", flexDirection: 'row'}}>
                 <TextInput
-                    label="Idade"
+                    label="Fundos"
                     style={{ backgroundColor: 'lightgray', marginTop: '40px', marginRight: '5px', width: '170px' }}
                     activeUnderlineColor="black" 
                     underlineColor="gray" 
@@ -71,7 +71,7 @@ export default function Cadastro(props) {
                     onChangeText={e => setIdade(e)}
                 />
                 <TextInput
-                    label="Sexo"
+                    label="Mais despesas"
                     style={{ backgroundColor: 'lightgray', marginTop: '40px', marginLeft: '5px', width: '170px' }}
                     activeUnderlineColor="black" 
                     underlineColor="gray" 

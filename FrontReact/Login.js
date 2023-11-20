@@ -82,7 +82,6 @@ export default function Login(props) {
                             height: "3em",
                             justifyContent: 'center',
                             alignItems: "center",
-                            borderRightWidth: 1 
                         }}>
                         <Text >Login</Text>
                     </Pressable>

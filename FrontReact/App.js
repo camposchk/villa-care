@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Cadastro from './Cadastro';
 import Login from './Login';
+import Financeiro from './Financeiro';
 import Home from './Home';
 import { UtilsContexto } from "./Context";
 
@@ -18,9 +19,10 @@ export default function App() {
     <NavigationContainer>
       <UtilsContexto.Provider value={{ usuarios, setUsuarios }}>
         <Stack.Navigator>
+          <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
           <Stack.Screen name="Home" options={{ headerShown: false }} component={Home} />
           <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
-          <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
+          <Stack.Screen name="Financeiro" options={{ headerShown: false }} component={Financeiro} />
         </Stack.Navigator>
       </UtilsContexto.Provider>
     </NavigationContainer>
