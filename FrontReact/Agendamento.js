@@ -17,12 +17,12 @@ export default function Home(props) {
                             height: "6em",
                             justifyContent: 'center',
                             alignItems: "center",
-                            backgroundColor: '#9e9d9d',
+                            backgroundColor: '#BBBABA',
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Image source={require('./imagens/custo.png')} style={styles.icons} />
-                        <Text>Custo do condomínio: </Text>
+                        <Image source={require('./imagens/lixo.png')} style={styles.icons} />
+                        <Text>Coleta de lixo</Text>
                     </Pressable>
                     <Pressable 
                         style={{
@@ -34,8 +34,8 @@ export default function Home(props) {
                             borderRadius: '15px',
                             margin: 2
                         }}>
-                        <Image source={require('./imagens/codigo-de-barras.png')} style={styles.icons} />
-                        <Text >Boleto</Text>
+                        <Image source={require('./imagens/reuniao.png')} style={styles.icons} />
+                        <Text >Assembléias</Text>
                     </Pressable>
                 </View>
             <View style={{ display: "flex", flexDirection: 'row' }}>

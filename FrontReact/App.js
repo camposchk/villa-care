@@ -5,6 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Cadastro from './Cadastro';
 import Login from './Login';
 import Financeiro from './Financeiro';
+import CustoApto from './CustoApto';
+import Denuncia from './Denuncia';
+import Reserva from './Reserva';
+import Agendamento from './Agendamento';
+import Historico from './Historico';
 import Home from './Home';
 import { UtilsContexto } from "./Context";
 
@@ -19,10 +24,15 @@ export default function App() {
     <NavigationContainer>
       <UtilsContexto.Provider value={{ usuarios, setUsuarios }}>
         <Stack.Navigator>
+          <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
           <Stack.Screen name="Cadastro" options={{ headerShown: false }} component={Cadastro} />
           <Stack.Screen name="Home" options={{ headerShown: false }} component={Home} />
-          <Stack.Screen name="Login" options={{ headerShown: false }} component={Login} />
           <Stack.Screen name="Financeiro" options={{ headerShown: false }} component={Financeiro} />
+          <Stack.Screen name="CustoApto" options={{ headerShown: false }} component={CustoApto} />
+          <Stack.Screen name="Denuncia" options={{ headerShown: false }} component={Denuncia} />
+          <Stack.Screen name="Reserva" options={{ headerShown: false }} component={Reserva} />
+          <Stack.Screen name="Agendamento" options={{ headerShown: false }} component={Agendamento} />
+          <Stack.Screen name="Historico" options={{ headerShown: false }} component={Historico} />
         </Stack.Navigator>
       </UtilsContexto.Provider>
     </NavigationContainer>

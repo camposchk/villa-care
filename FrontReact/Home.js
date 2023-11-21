@@ -11,7 +11,7 @@ export default function Home(props) {
                 <Image source={require('./villalogo.png')} style={{width: 100, height: 100}} />
             </View>
             <View style={{ display: "flex", flexDirection: 'row' }}>
-                    <Pressable onPress={() => props.navigation.navigate("Login")}
+                    <Pressable onPress={() => props.navigation.navigate("Reserva")}
                         style={{
                             width: "10em",
                             height: "6em",
@@ -24,7 +24,7 @@ export default function Home(props) {
                         <Image source={require('./imagens/reserva.png')} style={styles.icons} />
                         <Text >Reservas</Text>
                     </Pressable>
-                    <Pressable onPress={() => goToUsuario()}
+                    <Pressable onPress={() => props.navigation.navigate("Agendamento")}
                         style={{
                             width: "10em",
                             height: "6em",
@@ -52,7 +52,7 @@ export default function Home(props) {
                         <Image source={require('./imagens/financeiro.png')} style={styles.icons} />
                         <Text >Financeiro</Text>
                     </Pressable>
-                    <Pressable onPress={() => goToUsuario()}
+                    <Pressable onPress={() => props.navigation.navigate("Denuncia")}
                         style={{
                             width: "10em",
                             height: "6em",
@@ -67,7 +67,7 @@ export default function Home(props) {
                     </Pressable>
                 </View>
             <View style={{ display: "flex", flexDirection: 'row'}}>
-                    <Pressable onPress={() => goToUsuario()}
+                    <Pressable onPress={() => props.navigation.navigate("Historico")}
                         style={{
                             width: "10em",
                             height: "6em",
@@ -108,7 +108,7 @@ export default function Home(props) {
                         <Image source={require('./imagens/eleicao.png')} style={styles.icons} />
                         <Text >Eleições</Text>
                     </Pressable>
-                    <Pressable onPress={() => goToUsuario()}
+                    <Pressable onPress={() => props.navigation.navigate("Login")}
                         style={{
                             width: "10em",
                             height: "6em",
