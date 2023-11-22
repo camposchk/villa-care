@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { UtilsContexto } from "./Context";
 import { Text, Button, View, StyleSheet, Image,TouchableOpacity, TouchableWithoutFeedback, Pressable } from "react-native";
+import { IconButton, MD3Colors } from "react-native-paper"
 
 export default function Home(props) {
     const { usuarios, setUsuarios } = useContext(UtilsContexto);
@@ -121,6 +122,14 @@ export default function Home(props) {
                         <Text >Mais informações</Text>
                     </Pressable>
                 </View>
+                <IconButton
+                    type= "contained"
+                    icon="exit-to-app"
+                    iconColor={MD3Colors.black}
+                    size={30}
+                    style={{marginTop: 20}}
+                    onPress={() => props.navigation.navigate("Login")}
+                />
         </View>
     );
 }

@@ -1,7 +1,6 @@
-import { View, StyleSheet, Text, Pressable, Switch, } from "react-native";
+import { View, StyleSheet, Text, Pressable } from "react-native";
 import { TextInput } from "react-native-paper";
-import { useContext, useState } from 'react';
-import { UtilsContexto } from "./Context";
+import { useState } from 'react';
 import axios from 'axios';
 
 export default function Cadastro(props) {
@@ -12,14 +11,15 @@ export default function Cadastro(props) {
     const [extras, setExtras] = useState("")
 
     function update() {
-        props.navigation.navigate('Financeiro')
         apiJava()
+        props.navigation.navigate('Financeiro')
+        
     }
 
-    const apiJava = async (agua, funcionarios, fundos, extras) =>
+    const apiJava = async () =>
     {
         try {
-        const response = await axios.post("http://localhost:8080/user", {agua, funcionarios, fundos, extras});
+        const response = await axios.post("http://localhost:8080/custo", {agua, funcionarios, fundos, extras});
             console.log(response);
         } catch (error) {
             console.error(error);
@@ -31,7 +31,7 @@ export default function Cadastro(props) {
             <TextInput
                 left={<TextInput.Icon icon="currency-brl" />}
                 label="Água"
-                style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
+                style={styles.input}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
                 value={agua}
@@ -42,7 +42,7 @@ export default function Cadastro(props) {
             <TextInput
                 left={<TextInput.Icon icon="currency-brl" />}
                 label="Funcionários"
-                style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
+                style={styles.input}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
                 value={funcionarios}
@@ -52,7 +52,7 @@ export default function Cadastro(props) {
             <TextInput
                 left={<TextInput.Icon icon="currency-brl" />}
                 label="Fundos"
-                style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
+                style={styles.input}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
                 value={fundos}
@@ -62,7 +62,7 @@ export default function Cadastro(props) {
             <TextInput
                 left={<TextInput.Icon icon="currency-brl" />}
                 label="Mais despesas"
-                style={{ backgroundColor: 'lightgray', marginTop: '40px', width: '350px' }}
+                style={styles.input}
                 activeUnderlineColor="black" 
                 underlineColor="gray" 
                 value={extras}
@@ -108,5 +108,10 @@ const styles = StyleSheet.create({
         width: "100px",
         margin: "20px",
         marginTop: "50px"
+    },
+    input: {
+        backgroundColor: 'lightgray', 
+        marginTop: '40px', 
+        width: '350px'
     }
 });

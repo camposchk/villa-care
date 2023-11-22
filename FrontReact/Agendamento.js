@@ -11,7 +11,7 @@ export default function Home(props) {
                 <Image source={require('./villalogo.png')} style={{width: 100, height: 100}} />
             </View>
             <View style={{ display: "flex", flexDirection: 'row' }}>
-                    <Pressable onPress={() => props.navigation.navigate("CustoApto")}
+                    <Pressable onPress={() => props.navigation.navigate("Home")}
                         style={{
                             width: "10em",
                             height: "6em",
