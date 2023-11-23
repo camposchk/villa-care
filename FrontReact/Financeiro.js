@@ -1,9 +1,31 @@
-import { useContext } from 'react';
-import { UtilsContexto } from "./Context";
-import { Text, Button, View, StyleSheet, Image,TouchableOpacity, TouchableWithoutFeedback, Pressable } from "react-native";
+import { useState,useCallback } from 'react';
+import { Text, View, StyleSheet, Image, Pressable } from "react-native";
+import { useFocusEffect } from '@react-navigation/native';
+import axios from 'axios';
 
 export default function Home(props) {
-    const { usuarios, setUsuarios } = useContext(UtilsContexto);
+
+    const [cost,setCost] = useState(0);
+
+    async function apiJava() {
+        try {
+            await axios.get("http://localhost:8080/custo").then(response => {
+                const dados = response.data;
+                console.log("dados",dados)
+                const soma = dados.agua + dados.funcionarios + dados.fundos + dados.extras;
+                setCost(soma)
+            });
+            
+        } catch (error) {
+            console.log("error",error);
+        }
+    };
+
+    useFocusEffect(
+        useCallback(() => {
+            apiJava()
+        }, [])
+    );
 
     return (
         <View style={{ alignItems: "center", backgroundColor: "lightgray", height: "100%" }}>
@@ -22,7 +44,7 @@ export default function Home(props) {
                             margin: 2
                         }}>
                         <Image source={require('./imagens/custo.png')} style={styles.icons} />
-                        <Text>Custo do condomínio: </Text>
+                        <Text id='somaElemento'>{`Condomínio: ${cost}`}</Text>
                     </Pressable>
                     <Pressable 
                         style={{

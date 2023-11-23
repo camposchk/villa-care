@@ -1,6 +1,7 @@
 package com.villa.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +21,12 @@ public class CustoController {
     public void newCusto(@RequestBody CustoModel newCusto)
     {
         custoService.save(newCusto);
+    }
+
+    @GetMapping("")
+    public CustoModel getLast() 
+    {
+        CustoModel last = this.custoService.findLast();
+        return last;
     }
 }
