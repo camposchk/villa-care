@@ -10,6 +10,7 @@ import Denuncia from './Denuncia';
 import Reserva from './Reserva';
 import Agendamento from './Agendamento';
 import Historico from './Historico';
+import Churrasqueira from './Churrasqueira';
 import Home from './Home';
 import { UtilsContexto } from "./Context";
 
@@ -33,6 +34,8 @@ export default function App() {
           <Stack.Screen name="Reserva" options={{ headerShown: false }} component={Reserva} />
           <Stack.Screen name="Agendamento" options={{ headerShown: false }} component={Agendamento} />
           <Stack.Screen name="Historico" options={{ headerShown: false }} component={Historico} />
+          <Stack.Screen name="Churrasqueira" options={{ headerShown: false }} component={Churrasqueira} />
+          
         </Stack.Navigator>
       </UtilsContexto.Provider>
     </NavigationContainer>
