@@ -1,29 +1,44 @@
 import { View, StyleSheet, Text, Pressable } from "react-native";
-import { TextInput } from "react-native-paper";
 import { useState } from 'react';
 import { DatePickerInput } from 'react-native-paper-dates';
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useEffect } from 'react';
 import axios from 'axios';
 
 export default function Cadastro(props) {
 
-    const [diaReserva, setDiaReserva] = useState("")
+    const [diaReserva, setDiaReserva] = useState(new Date())
+    const [diasReservados, setDiasReservados] = useState([])
 
-    function update() {
+    function reservar() {
         apiJava()
-        props.navigation.navigate('Financeiro')
-        
+        props.navigation.navigate('Reserva')
     }
 
     const apiJava = async () =>
     {
         try {
-        const response = await axios.post("http://localhost:8080/custo", {agua, funcionarios, fundos, extras});
-            console.log(response);
+            const response = await axios.post("http://localhost:8080/churrasqueira", {diaReserva});
+            console.log("resposta", response);
         } catch (error) {
             console.error(error);
         }
     }
+    async function getApiJava() {
+        try {
+            const response = await axios.get("http://localhost:8080/churrasqueira");
+            const dados = response.data.map(item => new Date(item.diaReserva));
+            setDiasReservados(dados);
+        } catch (error) {
+            console.error("Erro ao buscar datas reservadas:", error);
+        }
+    }
+
+    useEffect(() => {
+        getApiJava();
+    }, []);
+    
+    console.log("dias reservados", diasReservados);
 
     return (
         <View style={styles.container}>
@@ -38,11 +53,12 @@ export default function Cadastro(props) {
                     inputMode="start"
                     style={styles.input}
                     mode="flat"
+                    disabledDates={diasReservados}
                 />                
             </SafeAreaProvider>
 
             <View style={{ display: "flex", flexDirection: 'row', marginBottom: '500px' }}>
-                    <Pressable onPress={() => update()}
+                    <Pressable onPress={() => reservar()}
                         style={{
                             width: "10em",
                             height: "3em",

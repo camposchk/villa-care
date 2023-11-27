@@ -15,6 +15,5 @@ public class ChurrasqueiraModel {
     @Id
     private String id;
     private LocalDate diaReserva;
-    private String moradorId;
-    
+    private String moradorId;  
 }
