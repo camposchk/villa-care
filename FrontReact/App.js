@@ -11,6 +11,10 @@ import Reserva from './Reserva';
 import Agendamento from './Agendamento';
 import Historico from './Historico';
 import Churrasqueira from './Churrasqueira';
+import Lixo from './Lixo';
+import AgendamentoLixo from './AgendamentoLixo';
+import Assembleia from './Assembleia';
+import AgendamentoAssembleia from './AgendamentoAssembleia';
 import Home from './Home';
 import { UtilsContexto } from "./Context";
 
@@ -35,6 +39,10 @@ export default function App() {
           <Stack.Screen name="Agendamento" options={{ headerShown: false }} component={Agendamento} />
           <Stack.Screen name="Historico" options={{ headerShown: false }} component={Historico} />
           <Stack.Screen name="Churrasqueira" options={{ headerShown: false }} component={Churrasqueira} />
+          <Stack.Screen name="Lixo" options={{ headerShown: false }} component={Lixo} />
+          <Stack.Screen name="AgendamentoLixo" options={{ headerShown: false }} component={AgendamentoLixo} />
+          <Stack.Screen name="Assembleia" options={{ headerShown: false }} component={Assembleia} />
+          <Stack.Screen name="AgendamentoAssembleia" options={{ headerShown: false }} component={AgendamentoAssembleia} />
           
         </Stack.Navigator>
       </UtilsContexto.Provider>

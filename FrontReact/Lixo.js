@@ -4,22 +4,21 @@ import { DatePickerInput } from 'react-native-paper-dates';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import axios from 'axios';
 
-export default function Cadastro(props) {
+export default function Lixo(props) {
 
     const [diaReserva, setDiaReserva] = useState(new Date())
     const [diasReservados, setDiasReservados] = useState([])
 
     function reservar() {
         apiJava()
-        props.navigation.navigate('Reserva')
-        alert("Reservado!")
+        props.navigation.navigate('AgendamentoLixo')
     }
 
     const apiJava = async () =>
     {
         try {
             console.log("diaReserva",diaReserva)
-            const response = await axios.post("http://localhost:8080/churrasqueira", {diaReserva});
+            const response = await axios.post("http://localhost:8080/lixo", {diaReserva});
             console.log("resposta", response);
         } catch (error) {
             console.error(error);
@@ -28,7 +27,7 @@ export default function Cadastro(props) {
 
     async function getApiJava() {
         try {
-            const response = await axios.get("http://localhost:8080/churrasqueira");
+            const response = await axios.get("http://localhost:8080/lixo");
             const dados = response.data.map(item => {
                 const dataReserva = new Date(item.diaReserva);
     
@@ -66,6 +65,11 @@ export default function Cadastro(props) {
                 />                
             </SafeAreaProvider>
 
+            <Pressable  onPress={() => props.navigation.navigate("AgendamentoLixo")}
+                style={{backgroundColor: 'gray', borderRadius: 30, height: 50, width: 200, display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 10}}>
+                <Text style={{color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Agendamentos</Text>
+            </Pressable>
+
             <View style={{ display: "flex", flexDirection: 'row', marginBottom: '500px' }}>
                     <Pressable onPress={() => reservar()}
                         style={{
@@ -74,10 +78,10 @@ export default function Cadastro(props) {
                             justifyContent: 'center',
                             alignItems: "center",
                         }}>
-                        <Text >Reservar</Text>
+                        <Text >Agendar</Text>
                     </Pressable>
                     
-                    <Pressable onPress={() => props.navigation.navigate("Reserva")}>
+                    <Pressable onPress={() => props.navigation.navigate("Agendamento")}>
                         <View style={{
                             width: "10em",
                             height: "3em",
@@ -85,7 +89,7 @@ export default function Cadastro(props) {
                             alignItems: "center", 
                             borderLeftWidth: 1 
                         }}>
-                            <Text style={{ color: "black" }}>Cancelar</Text>
+                        <Text style={{ color: "black" }}>Cancelar</Text>
                         </View>
                     </Pressable>
                 </View>

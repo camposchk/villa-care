@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { UtilsContexto } from "./Context";
 import { Text, Button, View, StyleSheet, Image,TouchableOpacity, TouchableWithoutFeedback, Pressable } from "react-native";
 
-export default function Home(props) {
+export default function Agendamento(props) {
     const { usuarios, setUsuarios } = useContext(UtilsContexto);
 
     return (
@@ -11,7 +11,7 @@ export default function Home(props) {
                 <Image source={require('./villalogo.png')} style={{width: 100, height: 100}} />
             </View>
             <View style={{ display: "flex", flexDirection: 'row' }}>
-                    <Pressable onPress={() => props.navigation.navigate("Home")}
+                    <Pressable onPress={() => props.navigation.navigate("Lixo")}
                         style={{
                             width: "10em",
                             height: "6em",
@@ -24,7 +24,7 @@ export default function Home(props) {
                         <Image source={require('./imagens/lixo.png')} style={styles.icons} />
                         <Text>Coleta de lixo</Text>
                     </Pressable>
-                    <Pressable 
+                    <Pressable onPress={() => props.navigation.navigate("Assembleia")} 
                         style={{
                             width: "10em",
                             height: "6em",
