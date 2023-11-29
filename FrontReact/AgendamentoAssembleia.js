@@ -56,11 +56,18 @@ export default function AgendamentoAssembleia(props) {
     );
 }
 
+function formatarData(data) {
+    const dia = data.getDate().toString().padStart(2, '0');
+    const mes = (data.getMonth() + 1).toString().padStart(2, '0'); // Lembre-se que os meses começam em zero
+    const ano = data.getFullYear();
+    return `${dia}/${mes}/${ano}`;
+}
+
 function Container(props) {
     return (    
         <View style={{ border: "solid 1px white", width: "200px", height: "100px", borderRadius: "10px", marginBottom: "20px", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <View style={{ marginTop: "5px", marginLeft: "10px" }}>
-                <Text>Data: {props.diaReserva.diaReserva.toDateString()} </Text>
+                <Text>Data Assembleia: {formatarData(props.diaReserva.diaReserva)} </Text>
                 <Pressable
                     onPress={props.onDelete}
                     style={{ backgroundColor: 'lightgray', borderRadius: 10, width: 40, height: 20, marginTop: 10, alignItems: "center", justifyContent: 'center', borderColor: 'white' }}>

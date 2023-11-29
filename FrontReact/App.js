@@ -15,6 +15,7 @@ import Lixo from './Lixo';
 import AgendamentoLixo from './AgendamentoLixo';
 import Assembleia from './Assembleia';
 import AgendamentoAssembleia from './AgendamentoAssembleia';
+import Vagas from './Vagas';
 import Home from './Home';
 import { UtilsContexto } from "./Context";
 
@@ -43,6 +44,7 @@ export default function App() {
           <Stack.Screen name="AgendamentoLixo" options={{ headerShown: false }} component={AgendamentoLixo} />
           <Stack.Screen name="Assembleia" options={{ headerShown: false }} component={Assembleia} />
           <Stack.Screen name="AgendamentoAssembleia" options={{ headerShown: false }} component={AgendamentoAssembleia} />
+          <Stack.Screen name="Vagas" options={{ headerShown: false }} component={Vagas} />
           
         </Stack.Navigator>
       </UtilsContexto.Provider>

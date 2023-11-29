@@ -24,7 +24,7 @@ export default function Home(props) {
                         <Image source={require('./imagens/churrasqueira.png')} style={styles.icons} />
                         <Text>Churrasqueira</Text>
                     </Pressable>
-                    <Pressable 
+                    <Pressable onPress={() => props.navigation.navigate("Vagas")}
                         style={{
                             width: "10em",
                             height: "6em",
