@@ -5,8 +5,6 @@ import { UtilsContexto } from "./Context";
 import axios from 'axios';
 
 export default function Cadastro(props) {
-
-    const [inicio, setInicio] = useState(false)
     const { usuarios, setUsuarios } = useContext(UtilsContexto)
 
     const [nome, setNome] = useState("")
@@ -14,20 +12,18 @@ export default function Cadastro(props) {
     const [sexo, setSexo] = useState("") 
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
-    const [senhare, setSenhare] = useState("")
+    const [sindico, setSindico] = useState(false)
 
     function goToLogin() {
-        if (senha == senhare) {
-            setUsuarios({ ...usuarios, usuariosArray:[...usuarios.usuariosArray,{nome: nome, idade: idade, sexo: sexo, email: email, senha: senha, id: usuarios.usuariosArray.length}] })
-            props.navigation.navigate('Login')
-            apiJava()
-        }
+        setUsuarios({ ...usuarios, usuariosArray:[...usuarios.usuariosArray,{nome: nome, idade: idade, sexo: sexo, email: email, senha: senha, sindico: sindico, id: usuarios.usuariosArray.length}] })
+        props.navigation.navigate('Login')
+        apiJava()  
     }
 
     const apiJava = async (nome, idade) =>
     {
         try {
-        const response = await axios.post("http://localhost:8080/user", {nome, idade});
+        const response = await axios.post("http://localhost:8080/user", {nome, idade, sexo, email, senha, sindico});
     
             console.log(response);
         } catch (error) {
@@ -93,8 +89,8 @@ export default function Cadastro(props) {
             <View style={{display: "flex", flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                 <Switch
                     style={{marginTop: 20}}
-                    onValueChange={() => setInicio(!inicio)}
-                    value={inicio}
+                    onValueChange={() => setSindico(!sindico)}
+                    value={sindico}
                     trackColor={{ false: "#767577", true: "#767577" }}
                     thumbColor={"#f4f3f4"}
                     activeThumbColor={"#1ff28d"}
